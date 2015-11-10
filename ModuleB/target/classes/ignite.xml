@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+	<bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+		<property name="peerClassLoadingEnabled" value="true" />
+
+		<property name="marshaller">
+			<bean class="org.apache.ignite.marshaller.optimized.OptimizedMarshaller">
+				<property name="requireSerializable" value="true" />
+			</bean>
+		</property>
+
+
+		<property name="metricsLogFrequency" value="0" />
+
+		<property name="gridLogger">
+			<bean class="org.apache.ignite.logger.slf4j.Slf4jLogger" />
+		</property>
+
+
+		<property name="discoverySpi">
+			<bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+				<property name="ipFinder">
+					<bean
+						class="org.apache.ignite.spi.discovery.tcp.ipfinder.zk.TcpDiscoveryZookeeperIpFinder">
+						<property name="zkConnectionString" value="127.0.0.1:2181"></property>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+</beans>

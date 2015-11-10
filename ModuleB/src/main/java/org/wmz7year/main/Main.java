@@ -10,7 +10,7 @@ import org.apache.ignite.Ignition;
  */
 public class Main {
 	public static void main(String[] args) {
-		Ignition.start();
+		Ignition.start("ignite.xml");
 		System.out.println("ModuleB start");
 	}
 }

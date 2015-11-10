@@ -5,7 +5,6 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 import org.wmz7year.entity.Entity;
-import org.wmz7year.entity.Impl.EntityImpl;
 import org.wmz7year.service.ExampleService;
 import org.wmz7year.service.util.ExternalizableUtil;
 
@@ -15,18 +14,11 @@ import org.wmz7year.service.util.ExternalizableUtil;
  * @author Jiang Wei(jiangwei@1318.com)
  * @date 2015年11月10日下午3:00:38
  */
-public class ExampleServiceImpl implements ExampleService {
+public class ExampleServiceImplA implements ExampleService {
 
 	private Entity entity;
-	
-	private String a;
-	
-	private String b;
 
-	public ExampleServiceImpl() {
-		entity = new EntityImpl("hello", 123);
-		a = "hello";
-		b = "world";
+	public ExampleServiceImplA() {
 	}
 
 	/*
@@ -36,7 +28,7 @@ public class ExampleServiceImpl implements ExampleService {
 	 */
 	@Override
 	public void methodA() {
-		System.out.println("methodA" + a);
+		System.out.println("methodA");
 	}
 
 	/*
@@ -46,7 +38,7 @@ public class ExampleServiceImpl implements ExampleService {
 	 */
 	@Override
 	public Object methodB() {
-		return entity;
+		throw new UnsupportedOperationException();
 	}
 
 	/*
@@ -56,7 +48,7 @@ public class ExampleServiceImpl implements ExampleService {
 	 */
 	@Override
 	public void methodC() {
-		System.out.println("method C" + b);
+		System.out.println("method C");
 	}
 
 	/*
