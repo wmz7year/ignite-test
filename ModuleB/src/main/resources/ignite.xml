@@ -23,6 +23,7 @@
 		</property>
 
 
+
 		<property name="discoverySpi">
 			<bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
 				<property name="ipFinder">
@@ -34,4 +35,5 @@
 			</bean>
 		</property>
 	</bean>
+
 </beans>
